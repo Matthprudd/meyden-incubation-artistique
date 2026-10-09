@@ -64,4 +64,12 @@ toggle.addEventListener('click',()=>{render();const open=panel.classList.toggle(
 cta.addEventListener('click',()=>{if(isOS){if(typeof window.go==='function')window.go('soumission');else location.hash='soumission';panel.classList.remove('open');toggle.setAttribute('aria-expanded','false');}else{if(window.opener&&!window.opener.closed){try{window.opener.focus();return;}catch(e){}}location.assign(OS);}});
 window.addEventListener('storage',e=>{if(isOS&&e.key===key)render()});
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{document.body.append(root);render()});else{document.body.append(root);render();}
+})();</script><script id="meyden-checkout-v25">(function(){
+const source='incubation',os='https://meydenx-hedliner.vercel.app/';
+function selection(){
+const el=document.getElementById('level');const lv=el?.value||'N1';const opts={N1:['Incubation artistique N1 — Structuration','100 $/mois'],N2:['Incubation artistique N2 — Déploiement','250 $/mois'],N3:['Incubation artistique N3 — Expansion','250 $/mois + pourcentage selon entente']};const a=opts[lv]||['Incubation artistique — niveau à déterminer','Selon devis'];return {source,title:a[0],price:a[1]};
+}
+function checkout(){const choice=selection();location.assign(os+'?meyden_service='+encodeURIComponent(JSON.stringify(choice)));}
+function ready(){const panel=document.querySelector('#meyden-floating-cart .mf-panel');if(!panel)return;const b=document.createElement('button');b.type='button';b.textContent='Ajouter mon forfait au panier central';b.className='mf-cta';b.style.background='#24715b';b.addEventListener('click',checkout);panel.appendChild(b);}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',ready);else ready();
 })();</script></body></html>
